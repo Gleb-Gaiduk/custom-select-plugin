@@ -1,0 +1,142 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    line-height: 1;
+    margin: 0;
+    font-family: Helvetica;
+    font-size: 16px;
+    letter-spacing: 0.98px;
+    background-color:#f2bc94;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+.page__container {
+    min-height: 100vh;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.page__select {
+    width:360px;
+}
+
+.select {
+    position: relative;
+    z-index: 20;
+}
+
+.select__backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+/* Dynamic behaviour */
+.select.open .select__dropdown  {
+    display: block;
+}
+
+.select.open :focus {
+    transition: none;
+    box-shadow: none;
+}
+
+.select.open .select__input {
+    background: #FFFFFF url('./src/arrow-top.svg') no-repeat 96% 65%;
+}
+
+.select__option.selected {
+    background-color: #722620;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.select__option.selected:hover {
+    background-color:#722620;
+}
+/* End of dynamic behaviour */
+
+.select__label {
+    color: #30110d;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.select__input {
+    display: block;
+    width: 100%;
+    padding: 14px 19px 13px 20px;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid #DCDCDC;
+    border-radius: 4px;
+    outline: none;
+    position: relative;
+    background: #FFFFFF url('./src/arrow-down.svg') no-repeat 96% center;
+}
+
+.select__input:focus {
+    transition: 0.3s;
+    box-shadow: 0px 0px 8px 2px #30110d;
+}
+
+.select__input::placeholder {
+    color: #C8C8C8;
+    line-height: 19px;
+    font-size: 16px;
+    letter-spacing: 0.98px;
+}
+
+.select__dropdown {
+    position: absolute;
+    width: 100%;
+    top: 74px;
+    left: 0;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #DDDBDA;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    display: none;
+    max-height: 206px;
+    overflow: auto;
+    
+}
+.select__option {
+    padding: 12px 21px;
+    border-bottom: 1px solid #DDDBDA;
+    cursor: pointer;
+    outline: none;
+}
+.select__option:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.select__option:hover {
+    transition: 0.3s;
+    background-color: #F0F2F4;
+}
+
+.select__option:last-child {
+    border-bottom: none;
+}
